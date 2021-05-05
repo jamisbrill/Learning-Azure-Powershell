@@ -1,4 +1,4 @@
-﻿Connect-AzAccount
+﻿Connect-AzAccount #login to the az account 
 New-AzResourceGroup -Name TestRG2 -Location 'UK West'
 New-AzVirtualNetwork -ResourceGroupName TestRG2 -Name 'vnet' -AddressPrefix '10.0.0.0/16' -Location 'UK West'
 
