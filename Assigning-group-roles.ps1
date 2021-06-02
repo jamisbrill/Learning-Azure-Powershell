@@ -1,21 +1,25 @@
-#Assign a Role based access control Role 
-#view all the roles first 
-Get-AzRoleDefinition | FT Name , Description 
-#View a specific role
-Get-AzRoleDefinition "contributor" 
-#List the actions of a specific role 
-Get-AzRoleDefinition "contributor" | FL Actions , NotActions
-#Create the subscriptionm variable 
-Get-AzSubscription 
-$subscriptionScope = "/subscription/Get-Your-Own-ID" 
-#Assign a role to a resource group 
-New-AzRoleAssignment -SignInName jamisbrillx@gmail.com -RoleDefinitionName Reader #-Scope $subscriptionScope 
-#Assign a role to a resource group 
-New-AzRoleAssignment -SignInName jamisbrillx@gmail.com -RoleDefinitionName Contributor -ResourceGroupName TestRG
-#List role assignments at the scope leve 
-Get-AzRoleAssignment -ResourceGroupName TestRG | FL DisplayName, RoleDefinitionName 
-#List of roles assigned to a user 
-Get-AzRoleAssignment -SignInName jamisbrillx@gmail.com | FL RoleDefinitionName, RoleAssignmentID
-#Remove the role assignment 
-Remove-AzRoleAssignment -SignInName jamisbrillx@gmail.com -RoleDefinitionName "Contributor" -ResourceGroupName TestRG 
+#assign Permissions group access to azure resources 
+$location = 'Uk South'
+#Connect-AzAccount
+Connect-AzureAD
+New-AzureADGroup -DisplayName "RBACGroup" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"  #create a new group
+New-AzResourceGroup -Name "rbacrg" -Location $location
+$groupstuff = AzureADGroup -SearchString "RBACGroup" | Where-Object -Property ObjectId
+$groupid = $groupstuff.ObjectId  
+echo $groupid
+$subscope1 = Get-AzSubscription 
+$subscope2 = $subscope1.id
+$subscope3 = "/subscriptions/"
+$subscopefinal = $subscope3 + $subscope2 
+
+echo $subscopefinal
+#grant access 
+New-AzRoleAssignment -ObjectId $groupId -RoleDefinitionName "Reader" -Scope $subscopefinal #Assign the role Reader at the sbuscription scope
+New-AzRoleAssignment -ObjectId $groupId -RoleDefinitionName "Contributor" -ResourceGroupName "rbacrg"
+#Check access
+Get-AzRoleAssignment -ObjectId $groupId -Scope $subScopefinal
+Get-AzRoleAssignment -ObjectId $groupId -ResourceGroupName "rbacrg"
+
+
+
 
