@@ -10,3 +10,6 @@ $subscope = "/subscriptions/"
 $subscopefinal = $subscope + $subscriptionid #concatenate the /subscriptions/ and ID 
 
 New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "Desktop Virtualization Reader" -Scope $subscopefinal
+
+
+#Based on https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell 
