@@ -1,0 +1,2 @@
+$SecureStringPassword = ConvertTo-SecureString -String PASSWORD -AsPlainText -Force  #Example password 
+New-AzADUser -DisplayName Dannster -UserPrincipalName Danny@jamisbrillxgmail.onmicrosoft.com -Password $SecureStringPassword -MailNickname Dannster
