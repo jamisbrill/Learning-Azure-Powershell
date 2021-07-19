@@ -47,9 +47,7 @@
         "adminUsername": {
             "type": "string"
         },
-        "adminPassword": {
-            "type": "secureString"
-        }
+     
     },
     "variables": {
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
