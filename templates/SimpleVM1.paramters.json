@@ -61,8 +61,6 @@
         "adminUsername": {
             "value": "jam"
         },
-        "adminPassword": {
-            "value": null
-        }
+     
     }
 }
