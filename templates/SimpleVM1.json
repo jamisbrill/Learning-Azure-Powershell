@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "westcentralus"
+            "value": "ukwest"
         },
         "networkInterfaceName": {
-            "value": "minecraft24"
+            "value": "mc244"
         },
         "networkSecurityGroupName": {
-            "value": "Minecraft-nsg"
+            "value": "Mc-nsg"
         },
         "networkSecurityGroupRules": {
             "value": [
@@ -31,26 +31,11 @@
         "subnetName": {
             "value": "default"
         },
-        "virtualNetworkName": {
-            "value": "Mcvnet833"
-        },
-        "addressPrefixes": {
-            "value": [
-                "10.1.0.0/16"
-            ]
-        },
-        "subnets": {
-            "value": [
-                {
-                    "name": "default",
-                    "properties": {
-                        "addressPrefix": "10.1.0.0/24"
-                    }
-                }
-            ]
+        "virtualNetworkId": {
+            "value": "/subscriptions/7179df9e-a6bf-47a7-b93c-062bed1965fd/resourceGroups/Mc/providers/Microsoft.Network/virtualNetworks/Mc-vnet"
         },
         "publicIpAddressName": {
-            "value": "Minecraft-ip"
+            "value": "Mc-ip"
         },
         "publicIpAddressType": {
             "value": "Dynamic"
@@ -59,10 +44,10 @@
             "value": "Basic"
         },
         "virtualMachineName": {
-            "value": "Minecraft"
+            "value": "Mc"
         },
         "virtualMachineComputerName": {
-            "value": "Minecraft"
+            "value": "Mc"
         },
         "virtualMachineRG": {
             "value": "Mc"
@@ -78,27 +63,6 @@
         },
         "adminPassword": {
             "value": null
-        },
-        "customData": {
-            "value": null
-        },
-        "autoShutdownStatus": {
-            "value": "Enabled"
-        },
-        "autoShutdownTime": {
-            "value": "23:00"
-        },
-        "autoShutdownTimeZone": {
-            "value": "UTC"
-        },
-        "autoShutdownNotificationStatus": {
-            "value": "Enabled"
-        },
-        "autoShutdownNotificationLocale": {
-            "value": "en"
-        },
-        "autoShutdownNotificationEmail": {
-            "value": "jamisbrillx@gmail.com"
         }
     }
 }
