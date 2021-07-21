@@ -30,7 +30,7 @@
             "value": "default"
         },
         "virtualNetworkId": {
-            "value": "/subscriptions/7179df9e-a6bf-47a7-b93c-062bed1965fd/resourceGroups/Mc/providers/Microsoft.Network/virtualNetworks/Mc-vnet"
+            "value": "/subscriptions//resourceGroups/Mc/providers/Microsoft.Network/virtualNetworks/Mc-vnet"
         },
         "publicIpAddressName": {
             "value": "Mc-ip"
