@@ -53,9 +53,17 @@
         "adminUsername": {
             "type": "string"
         },
-        "adminPassword": {
-            "type": "secureString"
-        },
+        "adminPassword": 
+        {
+         "reference": 
+         {
+      "keyVault": {
+      "id": "/subscriptions/7179df9e-a6bf-47a7-b93c-062bed1965fd/resourceGroups/KeystoreRG/providers/Microsoft.KeyVault/vaults/McKeys"
+                },
+      "secretName": "key1"
+  }
+          
+},
         "autoShutdownStatus": {
             "type": "string"
         },
