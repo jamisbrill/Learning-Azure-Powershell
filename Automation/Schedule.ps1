@@ -11,3 +11,4 @@ New-AzAutomationSchedule -AutomationAccountName "StandardAutomation" -Name "Sche
 
 #Stub please expand. 
 # adds a schedule to the automation account/ Requires a automation account ... Needs linking to a run book/Script etc 
+# Needs testing 19/08/21 
