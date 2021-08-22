@@ -12,5 +12,6 @@ New-AzAutomationSchedule -AutomationAccountName "StandardAutomation" -Name "Sche
 
 #Stub please expand. 
 # adds a schedule to the automation account/ Requires a automation account ... Needs linking to a run book/Script etc 
-# Needs testing 22/08/21   
+# Needs testing 22/08/21 
+#powershell script deploys fine but wont run ? ?
 # Start-AzVm : The term 'Start-AzVm' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again. At line:1 char:1 + Start-AzVm -ResourceGroupName "Mc" -Name McVM1 #Allocate + ~~~~~~~~~~ + CategoryInfo : ObjectNotFound: (Start-AzVm:String) [], CommandNotFoundException + FullyQualifiedErrorId : CommandNotFoundException
