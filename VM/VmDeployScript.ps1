@@ -1,3 +1,4 @@
+# A Virtual machines deploy that prompts the user for a custom deplotment 
 $resourceGroupName = Read-Host -Prompt "Mc"
 $location = Read-Host -Prompt "centralus"
 $adminUsername = Read-Host -Prompt "jam"
