@@ -8,16 +8,13 @@ $at = "@" # part of the concatenation of strings
 $userPrincipalName = $username+$at+$domain #  concat strings
 $groupDisplayName = Read-Host "Please enter te groups name "  # variable for group name
 
-New-AzADGroup -DisplayName $groupDisplayName -MailNickname $groupDisplayName #create a new group 
-Add-AzADGroupMember -MemberUserPrincipalName $userPrincipalName -TargetGroupDisplayName $groupDisplayName  #add the user you just created and add them to the group 
-
-
-
-
-
-
 Connect-AzureAD
+
+
+New-AzADGroup -DisplayName $groupDisplayName -MailNickname $groupDisplayName #create a new group 
+
 $SecureStringPassword = ConvertTo-SecureString -String $password -AsPlainText -Force  #Example password 
 New-AzADUser -DisplayName $username -UserPrincipalName $userPrincipalName -Password $SecureStringPassword -MailNickname $mailNickName
 
+Add-AzADGroupMember -MemberUserPrincipalName $userPrincipalName -TargetGroupDisplayName $groupDisplayName  #add the user you just created and add them to the group 
 
