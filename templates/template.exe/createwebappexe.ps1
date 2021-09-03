@@ -1,7 +1,7 @@
+Connect-AzAccount
 
-
-$resourceGroupName = "myfirstswadeployRG"
-
+#create a resourcegroup to put the web app in 
+$resourceGroupName = "WebAppRG"
 New-AzResourceGroup `
   -Name $resourceGroupName `
   -Location "Central US"
