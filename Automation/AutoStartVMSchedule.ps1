@@ -11,6 +11,8 @@ $TimeZone = ([System.TimeZoneInfo]::Local).Id #get the local timezone
 #Create an Azure Automation runbook and add data to the run book from file from the host computer 
 New-AzAutomationRunbook -Name RetrieveData_SendMail -Type PowerShell -ResourceGroupName StandardAutomationRG -AutomationAccountName AzureAutomationAccount 
 Import-AZAutomationRunbook -Name "StartVM" -Path "C:\Users\jamis\Documents\Azure\Powershell\StartVm.ps1" -Type PowerShell -ResourceGroupName StandardAutomationRG -AutomationAccountName AzureAutomationAccount –Force
+#add azure module to powershell script # cause otherwise the script wont run 
+New-AzAutomationModule -Name Azure -ContentLinkUri "https://www.powershellgallery.com/packages/Azure/5.3.1" -ResourceGroupName StandardAutomationRG -AutomationAccountName AzureAutomationAccount
 
 #Deploy the runbook and create a schedule to use with the script 
 Publish-AzAutomationRunbook -AutomationAccountName AzureAutomationAccount -ResourceGroupName StandardAutomationRG -Name "Start VM" #publish the automation script. 
@@ -18,7 +20,6 @@ New-AzAutomationSchedule -AutomationAccountName "AzureAutomationAccount" -Name "
 #link the schedule to the runbook 
 Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName –Name $runbookName –ScheduleName $scheduleName #–Parameters $params
 #Not sure what the params are for.... 
-
 
 
 #Notes /// ****************************************************************************************************************************\\
