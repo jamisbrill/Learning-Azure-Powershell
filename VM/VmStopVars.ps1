@@ -3,11 +3,9 @@
  $checkfilebool = Test-Path -Path .\VMNameVars.txt -PathType Leaf
 
  
- $condition = $false
-if ( $condition )
+if ( !$checkfilebool )
 {
  $VMName = Read-Host "Please enter the virtual machine name"
- echo "
 }
  
  echo $VMName| Out-File -FilePath .\VMNameVars.txt
