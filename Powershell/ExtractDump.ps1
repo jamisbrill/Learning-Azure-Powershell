@@ -1,4 +1,7 @@
-#Script to go thru archives and extract the data 
+#Script to go thru archives and extract the data // migrate the files first cut n past to folder 
+
+
+
 
 Get-ChildItem  "D:\UserFiles\Games\Xbox Games" -Filter *.txt -Recurse | % { $_.FullName }
 
