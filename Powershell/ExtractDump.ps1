@@ -8,6 +8,19 @@ Get-ChildItem -Path ".\*.iso" -Recurse | Move-Item -Destination "D:\UserFiles\Ga
 Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object -Property DeviceID,@{'Name' = 'FreeSpace (GB)'; Expression= { [int]($_.FreeSpace / 1GB) }}
 # output current space on disk ... to avoid dissapointment  
 
+$filePath = "D:\UserFiles\Games\Xbox Games" 
+$files = Get-ChildItem "D:\UserFiles\Games\Xbox Games" 
+
+#foreach ($f in $files){
+#    $outfile = $f.FullName + "out" 
+#    Get-Content $f.FullName | Where-Object { ($_ -match 'step4' -or $_ -match 'step9') } | Set-Content $outfile
+#}
+
+$fileNames = Get-ChildItem -Path $filePath -Recurse -Include *.iso
+
+
+
+
 $data[1] ##array to store the file paths 
 
 
