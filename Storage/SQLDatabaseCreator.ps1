@@ -7,8 +7,8 @@
    $databaseName = "SimpleDB"
 
    # The ip address range that you want to allow to access your server
-   $startIp = "0.0.0.0" // (Invoke-WebRequest ifconfig.me/ip).Content.Trim() // put 
-   $endIp = "0.0.0.0"
+   $startIp = (Invoke-WebRequest ifconfig.me/ip).Content.Trim()
+   $endIp = (Invoke-WebRequest ifconfig.me/ip).Content.Trim() # put external ip into here 
 
    # Show input variables
    Write-host "Resource group name is" $resourceGroupName
