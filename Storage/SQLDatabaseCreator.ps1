@@ -43,3 +43,7 @@
       -MinimumCapacity 2 `
       -SampleName "AdventureWorksLT"
    $database
+   
+   
+   Followed guide
+   https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-powershell
