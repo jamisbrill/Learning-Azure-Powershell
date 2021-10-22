@@ -13,3 +13,6 @@ New-NetFirewallRule -DisplayName "Allow7777udp" `
                     -LocalPort 27015 `
                     -Protocol UDP `
                     -Action Allow
+
+
+New-NetFirewallRule -DisplayName "TFTP" -Direction Outbound-LocalPort 69 -Protocol UDP -Action Allow
