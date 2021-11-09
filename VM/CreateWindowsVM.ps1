@@ -1,15 +1,15 @@
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
+    -ResourceGroupName "VM-RG" `
     -Name "myVM" `
-    -Location "East US" `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
+    -Location "Uk South" `
+    -VirtualNetworkName "Vnet1" `
+    -SubnetName "VMSubnet1" `
     -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
+    -PublicIpAddressName "PublicIpAddress" `
     -OpenPorts 80,3389
     
-    $pubip = Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
+    $pubip = Get-AzPublicIpAddress -ResourceGroupName "VM-RG" | Select "IpAddress"
     mstsc /v:$pubip #OPens RTP connect to the create VM
 
 
