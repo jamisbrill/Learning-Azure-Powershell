@@ -16,3 +16,4 @@ Get-AzPublicIpAddress -ResourceGroupName "LinuxVmRG" | Select "IpAddress"
 #Private key is saved to /home/user/.ssh/1234567891
 #Open SSH Client 
 #ssh -i ~/.ssh/1234567891 azureuser@10.111.12.123
+#https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-powershell
