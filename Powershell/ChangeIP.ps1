@@ -9,6 +9,8 @@ $ethernetinterfaceint   =  Get-NetAdapter -Name Ethernet | Select-Object -Expand
 $ethernetinterfaceint
 
 
+Get-NetAdapter -Name Ethernet | Select-Object -ExpandProperty 'ifIndex'
+
 echo "what ip do you want? "
 $useripinput = Read-Host   
 echo "This will be your ip ..... " $useripinput
@@ -52,4 +54,13 @@ echo "what subnetmask do you want?"
 $cidrnotation = Read-Host   #aka subnetmask 
  
 
+
+$ethernetinterfaceint
+$useripinput
+$cidrnotation
+#Need some way of working out if its uising DHCP or not cause , if using DHCP ===== Then you use NEW not SET 
+
 Set-NetIPAddress -InterfaceIndex $ethernetinterfaceint -IPAddress $useripinput -PrefixLength $cidrnotation
+
+Set-NetIPAddress -InterfaceIndex 2 -IPAddress 172.16.4.158 -PrefixLength 23
+Set-NetIPAddress 
