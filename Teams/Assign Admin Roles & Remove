@@ -1,5 +1,7 @@
 
 # Script to add admin role to admin profile & remove it 
+#& assign a user teams communications admin 
+
 
 # only connect to teams once 
 # checks whether tenant is there 
@@ -9,26 +11,17 @@ try { $null = Get-CsTenant } catch { Connect-MicrosoftTeams } {echo "Signing int
 Connect-AzureAD
 
 
-# Makes set user teams service admin  
+# Create variables to store role data etc
 
 $userName="davyjones@trustlabs.co.uk"
 $roleName="Teams Communications Administrator"
 $role = Get-AzureADDirectoryRole | Where {$_.displayName -eq $roleName} 
 
-
-#$role = Get-AzureADDirectoryRole
-
-echo $role
-echo $role.ObjectId
-
-
+#assign the role 
 Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId (Get-AzureADUser | Where {$_.UserPrincipalName -eq $userName}).ObjectID
 
-echo $memberid2.ObjectId
+#get the ids of the user 
+$memberid = Get-AzureADUser -ObjectId "davyjones@trustlabs.co.uk"
 
-$memberid2 = Get-AzureADUser -ObjectId "davyjones@trustlabs.co.uk"
-
-
-Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $memberid2.ObjectId 
-
-
+#remove the role from the user 
+Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $memberid.ObjectId 
