@@ -1,0 +1,7 @@
+#This is a temp fix for a driver issue 
+#elevates the script
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
+
+#Disable network adapter (All) and renables, without prompting the user   
+Disable-NetAdapter -Name "*"  -Confirm:$false
+Enable-NetAdapter -Name "*"
